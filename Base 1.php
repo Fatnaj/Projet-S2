@@ -11,13 +11,13 @@ include("ConnexionBase.php")
   <body>
     <!--entrer un pseudo-->
     <script type="text/JavaScript">
-function myfunction()
-{
+//function myfunction()
+//{//
       	var
-	Pseudo = prompt("Choisissez un pseudo entre 1 et 25 charactère ?","Indiquez le ici");
+	Ps = prompt("Choisissez un pseudo entre 1 et 25 charactère ?","Indiquez le ici");
   location.href = 'Base 1.php'
-}
-      alert("Bonjour " + Pseudo + ". Prêt à jouer ?");
+//}//
+      alert("Bonjour " + Ps + ". Prêt à jouer ?");
    </script>
 
 
@@ -47,11 +47,11 @@ function myfunction()
 
                 if (isset ($_POST['valider'])){
                     // On récupère les valeurs entrées par l'internaute :
-                    $Pseudo=$_POST['pseudo'];
+                    $Pseudo=$_POST["'Ps'"];
                     $Score=$_POST['0'];
 
                     //On prépare la commande sql d'insertion
-                    $req = 'INSERT INTO pseudo ('Pseudo', 'Score') VALUES ("'.$Pseudo'", "'.$Score'")';
+                    $req = mysql_query('INSERT INTO pseudo ('Pseudo', 'Score') VALUES ('.$Pseudo', '.$Score')');
                     /* on lance la commande (mysql_query) et on rédige un petit message d'erreur
         			      pour le cas où la requête ne passe pas (or die + mysql_error())
                     (Message qui intégrera les causes d'erreur sql)*/
@@ -73,7 +73,7 @@ function myfunction()
         					}
 
 
-  
+
 
         $mysqli -> close()
         ?>

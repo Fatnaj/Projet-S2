@@ -1,18 +1,21 @@
+<!--Inclusion du fichier qui contient le code pour la connexion (Peut aussi se mettre ici)-->
+<?php include("ConnexionBase.php") ?>
 <!DOCTYPE html>
+
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Projet S2 - Base </title>
   </head>
   <body>
+
     <!--entrer un pseudo-->
     <script type="text/JavaScript">
-//function myfunction()
-//{//
+
       	var
 	Ps = prompt("Choisissez un pseudo entre 1 et 25 charactère ?","Indiquez le ici");
-  location.href = 'Base 1.php'
-//}//
+
+
       alert("Bonjour " + Ps + ". Prêt à jouer ?");
    </script>
 
@@ -53,9 +56,6 @@
                     (Message qui intégrera les causes d'erreur sql)*/
                     $mysqli->query($req) or die ('Erreur SQL ! <br>'.$req.'<br />'.$mysqli->error);
                   }
-
-
-
 
 
         $mysqli -> close()

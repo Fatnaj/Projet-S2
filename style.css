@@ -1,0 +1,64 @@
+
+.arrow{
+	width: 22px;
+	height: 24px;
+	background-size: 22px 24px;
+	background-repeat: no-repeat;
+	display: inline-block;
+	background-image: url(fleche.png);
+	margin-right: 3px;
+}
+
+@font-face {
+    font-family: Mario;
+    src: url(../fonts/super-mario-bros.ttf);
+}
+
+@font-face {
+    font-family: PressStart;
+    src: url(../fonts/retro.ttf);
+}
+
+
+body{
+  	padding-top: 18px;
+
+	font-family: Mario, PressStart, monospace;
+	background-color: #fff;
+	color: #333;
+	font-size: 20px;
+
+	background: url(../images/bg.svg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+h3{
+	font-size: 20px;
+}
+p {
+    margin: 0 0 6px;
+}
+
+a{
+	color: #0059b3;
+}
+
+a:hover{
+	color: #0059b3;
+	text-decoration: none;
+}
+
+.hand{
+	cursor: pointer; cursor: hand;
+}
+
+.ui-effects-wrapper {
+        display:inline;
+    }
+
+.center{
+	text-align: center
+}

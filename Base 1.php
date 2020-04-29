@@ -1,7 +1,3 @@
-<!--Inclusion du fichier qui contient le code pour la connexion (Peut aussi se mettre ici)-->
-<?php
-include("ConnexionBase.php")
- ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -45,32 +41,19 @@ include("ConnexionBase.php")
         // REQUETE 1: Création de la requête recupération des pseudo
         //////////////////////////////////ENREGISTREMENT EN BDD//////////////////////////////////
 
-                if (isset ($_POST['valider'])){
+                    if (isset ($_POST["valider"])){
                     // On récupère les valeurs entrées par l'internaute :
-                    $Pseudo=$_POST["'Ps'"];
-                    $Score=$_POST['0'];
+                    $Pseudo=$_POST['Ps'];
+
 
                     //On prépare la commande sql d'insertion
-                    $req = mysql_query('INSERT INTO pseudo ('Pseudo', 'Score') VALUES ('.$Pseudo', '.$Score')');
+                    $req = mysqliquery("INSERT INTO joueurs ('Pseudo') VALUES ('.$Pseudo')");
                     /* on lance la commande (mysql_query) et on rédige un petit message d'erreur
         			      pour le cas où la requête ne passe pas (or die + mysql_error())
                     (Message qui intégrera les causes d'erreur sql)*/
                     $mysqli->query($req) or die ('Erreur SQL ! <br>'.$req.'<br />'.$mysqli->error);
+                  }
 
-        ////////////////AFFICHAGE DES PSEUDO ET SCORES  SUR LA PAGE WEB//////////////////
-
-
-        				// Création de la requête
-        				$req = "SELECT * FROM pseudo";
-        				// Envoi de la requête
-        				$result = $mysqli->query($req) or die('Erreur SQL ! <br>'.$req.'<br>'.$mysqli->error);;
-
-        				// Parcourir le tableau des enregistremente et Affichage de chaque message
-        				while($enreg = $result->fetch_array(MYSQLI_BOTH))
-        					{
-        					echo $enreg['pseudo']." ";
-        					echo $enreg['score']."<br />";
-        					}
 
 
 

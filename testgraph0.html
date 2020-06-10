@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="hajer.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <style>
+/*     body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; } */
+@font-face {
+    font-family: 'SuperMarioBros';
+    src: url('SuperMarioBros.ttf') format('truetype');
+}
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: red;
+        shape-rendering: crispEdges;
+    }
+
+    .axis text {
+        font-family: 'SuperMarioBros';
+        font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <center> <h3>Testes tes connaissances !</h3> </center>
+<i class="fa fa-heart" style="font-size:48px; color: blue"></i>
+<i class="fa fa-heart" style="font-size:48px; color: rgb( 9, 9, 110)"></i>
+<i class="fa fa-heart" style="font-size:48px; color: rgb(9, 9, 68)"></i>
+<br>
+</body>
+<body>
+  <script type="text/javascript">
+  var startTime = 0
+var start = 0
+var end = 0
+var diff = 0
+var timerID = 0
+window.onload = chronoStart;
+function chrono(){
+	end = new Date()
+	diff = end - start
+	diff = new Date(diff)
+	var msec = diff.getMilliseconds()
+	var sec = diff.getSeconds()
+	var min = diff.getMinutes()
+	var hr = diff.getHours()-1
+	if (min < 10){
+		min = "0" + min
+	}
+	if (sec < 10){
+		sec = "0" + sec
+	}
+	if(msec < 10){
+		msec = "00" +msec
+	}
+	else if(msec < 100){
+		msec = "0" +msec
+	}
+	document.getElementById("chronotime").value = hr + ":" + min + ":" + sec + ":" + msec
+	timerID = setTimeout("chrono()", 10)
+}
+function chronoStart(){
+
+	document.chronoForm.startstop.onclick = chronoStop
+	document.chronoForm.reset.onclick = chronoReset
+	start = new Date()
+	chrono()
+}
+function chronoContinue(){
+
+	document.chronoForm.startstop.onclick = chronoStop
+	document.chronoForm.reset.onclick = chronoReset
+	start = new Date()-diff
+	start = new Date(start)
+	chrono()
+}
+function chronoReset(){
+	document.getElementById("chronotime").value = "0:00:00:000"
+	start = new Date()
+}
+function chronoStopReset(){
+	document.getElementById("chronotime").value = "0:00:00:000"
+	document.chronoForm.startstop.onclick = chronoStart
+}
+function chronoStop(){
+
+	document.chronoForm.startstop.onclick = chronoContinue
+	document.chronoForm.reset.onclick = chronoStopReset
+	clearTimeout(timerID)
+}
+
+  </script>
+  <div class="container content" id="game-content">
+  <p class="menu content" content="menu-content" id="game-menu">main menu</p>
+  <div class="center pull-right" style="padding-right:20px">
+    <div class="highscore-wrap">high score</div>
+    <div class="highscore-menu highscore">0</div>
+  </div>
+
+  <div class="col-md-6" style="padding-top:20px">
+  <div id="input-div" style="margin-bottom:20px;">
+  <input type='text' id="guess-input"></input>
+  <a id="submit-btn" class="btn-game hand">GUESS</a>
+  <a id="next-btn" class="btn-game hand" style="display:none; margin-left:0">NEXT</a>
+  <div class="hide"> <form name="chronoForm">
+    <input type="text" name="chronotime" id="chronotime" value="0:00:00:00"/>
+      <input type="button" name="startstop"  onClick="chronoStart()" />
+
+  </form>
+  </div>
+  <div>
+  </div>
+
+  <div>
+  <table id="results" class="results-table" style="display:none;">
+  <tr>
+  <td>true r</td>
+  <td id="true-r">-</td>
+  </tr>
+  <tr>
+  <td>guessed r</td>
+  <td id="guessed-r">-</td>
+  </tr>
+  <tr>
+  <td>difference</td>
+  <td id="diff-r">-</td>
+  </tr>
+  </table>
+
+  <table id="streaks-table" class="results-table" style="margin-top:20px">
+  <tr id="streaks-wrap">
+  <td>streaks</td>
+  <td id="nstreaks">0</td>
+  </tr>
+  <tr id="avg-err-wrap">
+  <td>mean error</td>
+  <td id="avg-err">-</td>
+  </tr>
+  </table>
+  </div>
+
+  <script>
+
+    // Largeur et hauteur
+    var w = 500;
+    var h = 500
+    00;
+    var padding = 50;
+
+    // Ensemble dynamique de nombres aléatoires
+    var dataset = [];
+    var numDataPoints = 100;
+    var xRange = Math.random();
+    var yRange = Math.random();
+    for (var i = 0; i < numDataPoints; i++) {
+        var newNumber1 = (Math.random() * 1);
+        var newNumber2 = (Math.random() * 1);
+        dataset.push([newNumber1, newNumber2]);
+    }
+
+    // ATTENTION ! en V4, scale().linear() devient scaleLinear()
+    var xScale = d3.scaleLinear()
+        .domain([0, d3.max(dataset, function(d) { return d[0]; })])
+        .range([padding, (w - padding * 2)]);
+
+    var yScale = d3.scaleLinear()
+        .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+        .range([h - padding, padding]); // Inversion pour des y qui "montent"
+
+    var rScale = d3.scaleLinear()
+        .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+        .range([3,3]);
+
+        // pas utilisé pour l'instantpermet d'afficher plusieurs couleurs
+    var colorScale = d3.scaleLinear()
+        .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+        .range(["#1137f2", "#ef0f00"]);
+
+
+    // Crée l'élément SVG
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+
+    //Text
+    var text = d3.select("body")
+        .append("p")
+        .text("");
+
+
+    svg.selectAll("circle")
+        .data(dataset)
+        .enter()
+        .append("circle")
+        .attr("cx", function(d) {
+            return xScale(d[0]);
+        })
+        .attr("cy", function(d) {
+            return yScale(d[1]);
+        })
+        .attr("r", function(d) {
+            return rScale(d[1]);
+        })
+    		// Ajout perso d'une couleur
+        .attr("fill", "yellow")
+        .attr("stroke", "orange")
+        // Ajout perso des valeurs en tooltip
+        .append("svg:title")
+        .text(function(d) {
+            return d[0] + "," + d[1];
+        })
+        ;
+
+
+
+    var xAxis = d3.axisBottom(xScale)
+        .ticks(5);
+
+    // Créé l'axe X
+    svg.append("g")
+        .attr("class", "axis")
+        .attr("transform", "translate(0," + (h - padding) + ")")
+        .call(xAxis);
+
+    var yAxis = d3.axisLeft(yScale)
+        .ticks(5);
+
+    // Créé l'axe Y
+    svg.append("g")
+        .attr("class", "axis")
+        .attr("transform", "translate(" + padding + ",0)")
+        .call(yAxis);
+
+  </script>
+
+
+</body>

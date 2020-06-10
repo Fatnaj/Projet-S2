@@ -1,0 +1,26 @@
+/***** GENERAL *****/
+
+@font-face {
+    font-family: 'SuperMarioBros';
+    src: url('SuperMarioBros.ttf') format('truetype');
+}
+
+h3
+{
+  font-family: 'SuperMarioBros';
+}
+
+p
+{
+  font-family:'SuperMarioBros';
+}
+
+a
+{
+  font-family:'SuperMarioBros';
+}
+
+td
+{
+  font-family:'SuperMarioBros';
+}

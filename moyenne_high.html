@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container content" id="game-content">
+    <p class="menu content" content="menu-content" id="game-menu">main menu</p>
+    <div class="center pull-right" style="padding-right:20px">
+      <div class="highscore-wrap">high score</div>
+      <div class="highscore-menu highscore">0</div>
+    </div>
+
+<div class="col-md-6" style="padding-top:20px">
+<div id="input-div" style="margin-bottom:20px;">
+<input type='text' id="guess-input"></input>
+<a id="submit-btn" class="btn-game hand">GUESS</a>
+<a id="next-btn" class="btn-game hand" style="display:none; margin-left:0">NEXT</a>
+<div class="hide"><span style="margin-right:20px">
+  time</span><span class="timer-minutes">00</span>:<span class="timer-seconds">00</span></div>
+</div>
+<div>
+</div>
+
+<div>
+<table id="results" class="results-table" style="display:none;">
+<tr>
+<td>true r</td>
+<td id="true-r">-</td>
+</tr>
+<tr>
+<td>guessed r</td>
+<td id="guessed-r">-</td>
+</tr>
+<tr>
+<td>difference</td>
+<td id="diff-r">-</td>
+</tr>
+</table>
+
+<table id="streaks-table" class="results-table" style="margin-top:20px">
+<tr id="streaks-wrap">
+<td>streaks</td>
+<td id="nstreaks">0</td>
+</tr>
+<tr id="avg-err-wrap">
+<td>mean error</td>
+<td id="avg-err">-</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

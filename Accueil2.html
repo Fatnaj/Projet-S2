@@ -1,0 +1,184 @@
+
+<html lang="en" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>Guess the correlation</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="stylesheet" type="text/css" href="hajer.css">
+
+
+    <script type="text/javascript">
+
+    <!--entrer un pseudo-->
+      function mafonction(){
+        var Ps = prompt("Choisissez un pseudo entre 1 et 25 charactère ?","Indiquez le ici");
+        location.href='Base 1.php?Ps='+Ps
+        alert("Bonjour " + Ps +"!");
+      }
+
+    function Hide (addr) { document.getElementById(addr).style.visibility = "hidden";	}
+
+    function Show (addr) { document.getElementById(addr).style.visibility = "visible";	}
+
+
+
+    function toggle(anId)
+
+    {
+
+    	if (document.getElementById(anId).style.visibility == "hidden")	{	Show(anId);	}
+
+    	else															{	Hide(anId);	}
+
+    }
+
+    window.onload = function () { Hide("fleche1");
+
+                                  Hide("fleche2");
+
+                                  Hide("fleche3");
+
+                                  Hide("fleche4");
+
+                                  Hide("fleche5");
+
+                                  Hide("fleche6");
+
+                                };
+
+      function changeImg(imageElement) {
+                              		imageElement.src = imageElement.getAttribute('src')=="son1.png"?"son2.png" : "son1.png";
+                              	}
+    </script>
+
+
+
+  </head>
+
+  <body>
+
+
+    <center>
+
+      <img class="menu-logo" alt="GUESS THE CORRELATION" src="guesscor_logo.png">
+
+      <table class="menu-table">
+
+        <tbody><tr class="menu-item" id="new-game" content="game-content">
+
+          <td><div class="arrow" id="fleche1"></div></td>
+
+          <td><a href="http://localhost/Projet%20S2/testgraph0.html" onmouseover = "toggle('fleche1');" onmouseout = "toggle('fleche1');" onclick="http://localhost/Projet%20S2/testgraph0.html">NEW GAME</a></td></tr>
+
+      </tbody></table>
+
+      <table class="menu-table">
+
+        <tbody><tr class="menu-item" id="resume-game" content="game-content"><td><div class="arrow" id="fleche2"></div></td>
+
+          <td><a href="#" onmouseover = "toggle('fleche2');" onmouseout = "toggle('fleche2');">RESUME GAME</a></td></tr>
+
+      </tbody></table>
+
+      <table class="menu-table">
+
+        <tbody><tr class="menu-item" id="twoplayer-game" content="twoplayer-content">
+
+          <td><div id="fleche3" class="arrow"></div></td>
+
+          <td><a href="#" onmouseover = "toggle('fleche3');" onmouseout = "toggle('fleche3');">TWO PLAYERS</a></td></tr>
+
+      </tbody></table>
+
+      <table class="menu-table">
+
+        <tbody><tr class="menu-item" id="twoplayer-game" content="twoplayer-content">
+
+          <td><div id="fleche4" class="arrow"></div></td>
+
+          <td><a href="#" onmouseover = "toggle('fleche4');" onmouseout = "toggle('fleche4');">SCORE BOARD</a></td>
+
+        </tr>
+
+      </tbody></table>
+
+      <table class="menu-table">
+
+        <tbody><tr class="menu-item" id="twoplayer-game" content="twoplayer-content">
+
+          <td><div id="fleche5" class="arrow"></div></td>
+
+          <td><a href="About.html" onmouseover = "toggle('fleche5');" onmouseout = "toggle('fleche5');">ABOUT</a></td></tr>
+
+      </tbody></table>
+
+      <table class="menu-table">
+
+        <tbody><tr class="menu-item" id="twoplayer-game" content="twoplayer-content">
+
+          <td><div id="fleche6" class="arrow"></div></td>
+
+          <td><a href="settings.html" onmouseover = "toggle('fleche6');" onmouseout = "toggle('fleche6');">SETTINGS</a></td></tr>
+
+      </tbody></table>
+
+      </center>
+
+    <table align="center" cellpadding="2" cellspacing="2">
+
+      <thead>
+
+          <tr><td align ="center" valign ="middle"> <!--HIGHSCORE + <i>score bdd +  -->
+            <a href="#">    <img src="son1.png" onClick="changeImg(this);"/></a>
+                <script type="text/javascript">
+                    const image1="son1.png";
+                    const image2="son2.png";
+                    function changeImg(imageElement) {
+                            imageElement.src = imageElement.getAttribute('src')==image1?image2:image1;
+                    }
+                </script>
+          </i></td></tr>
+
+          <tr><td align ="center" valign ="middle"><i><script type="text/javascript">
+            write(Ps)
+          </script></i></td></tr>
+
+          <script type="text/javascript">
+            write(Ps)
+          </script>
+      </thead>
+
+    </table>
+
+    <table align="center" cellpadding="2" cellspacing="2">
+
+      <thead>
+
+        <tr><th><a href="https://twitter.com/intent/tweet?text=How%20good%20are%20you%20at%20guessing%20correlation%20coefficients%20from%20scatter%20plots%3F%20Test%20your%20skills!%20http%3A%2F%2Fguessthecorrelation.com%2F%20by%20@omarwagih"><img src="twitter.png" width="50" height="50" alt="image twitter"></a></th>
+
+            <th><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fguessthecorrelation.com%2F"><img src="fb.png" width="50" height="50" alt="image facebook"></a></th>
+
+            <th><a href="https://plus.google.com/up/?continue=https://plus.google.com/share?url%3Dhttp://guessthecorrelation.com/"><img src="google.png" width="50" height="50"  alt="image google"></a></th></tr>
+
+      </thead>
+
+    </table>
+
+    <table align="center" cellpadding="2" cellspacing="2">
+
+      <thead>
+
+        <tr><th><a href="https://www.paypal.com/donate/?token=H_To0XJ5aDVcp2Epinq9pw-YKw9RFNwssxbTZ8aQue8jGOp4Z15LrnwMB7A4jVPH0rAocW&country.x=US&locale.x=US&Z3JncnB0="><img src="coffee.png" alt="image coffee"></a></th></tr>
+
+      </thead>
+
+    </table>
+
+  </body>
+
+</html>
